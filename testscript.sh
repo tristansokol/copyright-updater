@@ -3,9 +3,7 @@
 # A simple script
 echo "looking in " $1
 
-#get the curret directory
-
-
+#get the current directory
 cd $1
 #check what git branch we are on
 branch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
@@ -47,7 +45,6 @@ grep copyright ./ -lir | while read -r filename ; do
 					sed -i '' -e "s@Copyright $nextword@Copyright $nextword - $lastupdated@g" $filename
 					sed -i '' -e "s@Copyright (c) $nextword@Copyright $nextword - $lastupdated@g" $filename
 					sed -i '' -e "s@Copyright (C) $nextword@Copyright $nextword - $lastupdated@g" $filename
-					#rm $filename.deleteme Copyright 2014 - 2016
 				fi
 			else
 				echo $filename
